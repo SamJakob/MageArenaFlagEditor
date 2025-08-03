@@ -16,17 +16,17 @@ jobs:
     - uses: actions/checkout@v4
     - name: Install Windows toolchain for Rust
       run: rustup target add x86_64-pc-windows-gnu
-    - name: Run tests
-      run: cargo test --verbose
+    - name: Run bitmap-rs tests
+      run: cargo test --package bitmap-rs --verbose
     - name: Build for Windows
       run: cargo build --target x86_64-pc-windows-gnu --release --verbose
-    - name: version
+    - name: Bump Version
       id: version
       uses: flatherskevin/semver-action@v1
       with:
         incrementLevel: patch
         source: tags
-    - name: Release
+    - name: Upload Release
       uses: softprops/action-gh-release@v1
       with:
         name: ${{ steps.version.outputs.nextVersion }}
