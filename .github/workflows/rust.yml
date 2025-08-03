@@ -1,0 +1,34 @@
+name: Build Release
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install Windows toolchain for Rust
+      run: rustup target add x86_64-pc-windows-gnu
+    - name: Run tests
+      run: cargo test --verbose
+    - name: Build for Windows
+      run: cargo build --target x86_64-pc-windows-gnu --release --verbose
+    - name: version
+      id: version
+      uses: flatherskevin/semver-action@v1
+      with:
+        incrementLevel: patch
+        source: tags
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        name: ${{ steps.version.outputs.nextVersion }}
+        tag_name: ${{ steps.version.outputs.nextVersion }}
+        files: target/x86_64-pc-windows-gnu/release/mage_arena_flag_editor.exe
