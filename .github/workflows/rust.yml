@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Install Windows toolchain for Rust
-      run: rustup target add x86_64-pc-windows-gnu
+      run: sudo apt install -y gdb-mingw-w64 gcc-mingw-w64-x86-64 && rustup target add x86_64-pc-windows-gnu
     - name: Run bitmap-rs tests
       run: cargo test --package bitmap-rs --verbose
     - name: Build for Windows
