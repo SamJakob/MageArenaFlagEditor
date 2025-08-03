@@ -9,7 +9,8 @@ You can run `.\mage_arena_flag_editor.exe --help` (or add `--help` to any comman
 
 ## Pre-compiled binary
 
-You can download the pre-compiled binary from GitHub Releases.
+You can download the pre-compiled application binary from GitHub Releases.
+You should also download the `palette.png` file and put it in the same folder as the application binary.
 
 I don't have a Windows Code Signing certificate (because they cost upwards of $1,000) so Windows may warn about the
 pre-compiled binary.
