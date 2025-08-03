@@ -1,0 +1,10 @@
+[package]
+name = "mage_arena_flag_editor"
+publish = false
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.5.42", features = ["derive"] }
+bitmap-rs = { path = "../bitmap-rs" }
+windows-registry = "0.5.3"

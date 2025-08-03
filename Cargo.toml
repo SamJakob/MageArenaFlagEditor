@@ -1,0 +1,6 @@
+[workspace]
+resolver = "3"
+members = [
+    "bitmap-rs",
+    "mage_arena_flag_editor"
+]
