@@ -5,6 +5,8 @@
 This is an unofficial application that allows you to set or get your custom flag in the game Mage Arena using the
 Microsoft Bitmap Image format (`.bmp`).
 
+**For instructions, please see [the project wiki](https://github.com/SamJakob/MageArenaFlagEditor/wiki).**
+
 You can run `.\mage_arena_flag_editor.exe --help` (or add `--help` to any command) for detailed instructions.
 
 ## Pre-compiled binary
